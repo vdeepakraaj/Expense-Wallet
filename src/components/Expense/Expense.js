@@ -1,9 +1,12 @@
 import React from "react";
+import strings from "../../constants/Strings";
 
 const Expense = () => {
   return (
     <div className="alert alert-warning">
-      <span>Spent: SGD 5000</span>
+      <span>
+        {strings.spentAmount}: {strings.currency} 5000
+      </span>
     </div>
   );
 };
