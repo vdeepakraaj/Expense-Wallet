@@ -1,12 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../state/reducer/root-reducer";
 import ExpenseItem from "../ExpenseItem";
 
 const ExpenseList = () => {
-  const expenseList = [
-    { id: 1, name: "Food", cost: 40 },
-    { id: 2, name: "Medicine", cost: 400 },
-    { id: 3, name: "Cinema", cost: 50 },
-  ];
+  const { expenseList } = useSelector((state: RootState) => state.expenseList);
 
   return (
     <ul className="list-group">

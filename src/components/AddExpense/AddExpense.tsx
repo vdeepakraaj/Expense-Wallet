@@ -6,10 +6,10 @@ const AddExpenseForm = () => {
     <form>
       <div className="row">
         <div className="col-sm">
-          <label for="name">{strings.category}</label>
+          <label htmlFor="name">{strings.category}</label>
           <div className="mt-3">
             <input
-              required="required"
+              required={true}
               type="text"
               className="form-control"
               id="name"
@@ -18,10 +18,10 @@ const AddExpenseForm = () => {
           <div className="row"></div>
         </div>
         <div className="col-sm">
-          <label for="cost">{strings.cost}</label>
+          <label htmlFor="cost">{strings.cost}</label>
           <div className="mt-3">
             <input
-              required="required"
+              required={true}
               type="text"
               className="form-control"
               id="cost"
