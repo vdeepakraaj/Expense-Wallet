@@ -16,13 +16,8 @@ export const expenseSlice = createSlice({
       const { payload } = param;
       state.expenseList.push(payload);
     },
-
-    deleteExpense: (state, param) => {
-      const { payload } = param;
-      delete state.expenseList[payload];
-    },
   },
 });
 
-export const { saveExpense, deleteExpense } = expenseSlice.actions;
+export const { saveExpense } = expenseSlice.actions;
 export default expenseSlice.reducer;
