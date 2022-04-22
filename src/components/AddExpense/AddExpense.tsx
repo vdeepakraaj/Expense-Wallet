@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import strings from "../../constants/Strings";
 import { saveExpense } from "../../state/slices/expense-slice";
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuid } from "uuid";
 
 const AddExpenseForm = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const AddExpenseForm = () => {
   const onSubmit = (event: any) => {
     event.preventDefault();
     const expense = {
-      id: uuidv4(),
+      id: uuid(),
       category: category,
       cost: parseInt(cost),
     };

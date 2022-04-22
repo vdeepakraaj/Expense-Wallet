@@ -1,14 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuid } from "uuid";
 
 export const expenseSlice = createSlice({
   name: "expenseList",
   initialState: {
     budget: 2000,
     expenseList: [
-      { id: uuidv4(), category: "shopping", cost: 40 },
-      { id: uuidv4(), category: "holiday", cost: 400 },
-      { id: uuidv4(), category: "car service", cost: 50 },
+      { id: uuid(), category: "shopping", cost: 40 },
+      { id: uuid(), category: "holiday", cost: 400 },
+      { id: uuid(), category: "car service", cost: 50 },
     ],
   },
   reducers: {
@@ -16,8 +16,13 @@ export const expenseSlice = createSlice({
       const { payload } = param;
       state.expenseList.push(payload);
     },
+
+    deleteExpense: (state, param) => {
+      const { payload } = param;
+      delete state.expenseList[payload];
+    },
   },
 });
 
-export const { saveExpense } = expenseSlice.actions;
+export const { saveExpense, deleteExpense } = expenseSlice.actions;
 export default expenseSlice.reducer;
