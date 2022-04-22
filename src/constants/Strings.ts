@@ -9,6 +9,9 @@ const Strings = {
   cost: "Cost",
   addButton: "Add",
   currency: "SGD",
+  Edit: "Edit",
+  save: "Save",
+  budget: "Budget:",
 };
 
 export default Strings;

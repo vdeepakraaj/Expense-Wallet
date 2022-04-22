@@ -21,8 +21,13 @@ export const expenseSlice = createSlice({
       const { payload } = param;
       state.expenseList.splice(payload, 1);
     },
+
+    setBudget: (state, param) => {
+      const { payload } = param;
+      state.budget = payload;
+    },
   },
 });
 
-export const { saveExpense, deleteExpense } = expenseSlice.actions;
+export const { saveExpense, deleteExpense, setBudget } = expenseSlice.actions;
 export default expenseSlice.reducer;

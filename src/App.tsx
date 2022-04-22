@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Provider } from "react-redux";
 import Balance from "./components/Balance";
 import Expense from "./components/Expense";
-import Income from "./components/Income";
+import { Income } from "./components/Income";
 import store from "../src/state/store";
 import ExpenseList from "./components/ExpenseList";
 import AddExpenseForm from "./components/AddExpense/AddExpense";
