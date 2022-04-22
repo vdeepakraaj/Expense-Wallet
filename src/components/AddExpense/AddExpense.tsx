@@ -10,7 +10,7 @@ const AddExpenseForm = () => {
   const [category, setCategory] = useState("");
   const [cost, setCost] = useState("");
 
-  const onSubmit = (event: any) => {
+  const onSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     const expense = {
       id: uuid(),
