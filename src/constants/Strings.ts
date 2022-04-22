@@ -2,7 +2,7 @@ const Strings = {
   appTilte: "Expense Wallet",
   incomeAmount: "Income",
   balanceAmount: "Balance",
-  spentAmount: "Amount Spent",
+  spentAmount: " Spent",
   expenseList: "Expenses",
   addExpense: "Add Expense",
   category: "Category",

@@ -1,13 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from "uuid";
 
 export const expenseSlice = createSlice({
   name: "expenseList",
   initialState: {
     budget: 2000,
     expenseList: [
-      { id: 1, name: "shopping", cost: 40 },
-      { id: 13, name: "holiday", cost: 400 },
-      { id: 14, name: "car service", cost: 50 },
+      { id: uuidv4(), category: "shopping", cost: 40 },
+      { id: uuidv4(), category: "holiday", cost: 400 },
+      { id: uuidv4(), category: "car service", cost: 50 },
     ],
   },
   reducers: {

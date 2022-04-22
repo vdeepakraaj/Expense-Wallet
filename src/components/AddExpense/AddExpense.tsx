@@ -1,9 +1,27 @@
-import React from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import strings from "../../constants/Strings";
+import { saveExpense } from "../../state/slices/expense-slice";
+import { v4 as uuidv4 } from "uuid";
 
 const AddExpenseForm = () => {
+  const dispatch = useDispatch();
+
+  const [category, setCategory] = useState("");
+  const [cost, setCost] = useState("");
+
+  const onSubmit = (event: any) => {
+    event.preventDefault();
+    const expense = {
+      id: uuidv4(),
+      category: category,
+      cost: parseInt(cost),
+    };
+    dispatch(saveExpense(expense));
+  };
+
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <div className="row">
         <div className="col-sm">
           <label htmlFor="name">{strings.category}</label>
@@ -13,6 +31,8 @@ const AddExpenseForm = () => {
               type="text"
               className="form-control"
               id="name"
+              value={category}
+              onChange={(event) => setCategory(event.target.value)}
             ></input>
           </div>
           <div className="row"></div>
@@ -24,6 +44,8 @@ const AddExpenseForm = () => {
               required={true}
               type="text"
               className="form-control"
+              value={cost}
+              onChange={(event) => setCost(event.target.value)}
               id="cost"
             ></input>
           </div>
