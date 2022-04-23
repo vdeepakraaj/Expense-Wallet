@@ -80,6 +80,7 @@ const AddExpenseForm = () => {
               required={true}
               type="number"
               className="form-control"
+              min="0"
               value={cost}
               onChange={(event) => setCost(event.target.value)}
               id="cost"
