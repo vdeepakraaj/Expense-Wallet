@@ -78,7 +78,7 @@ const AddExpenseForm = () => {
           <div className="mt-3">
             <input
               required={true}
-              type="text"
+              type="number"
               className="form-control"
               value={cost}
               onChange={(event) => setCost(event.target.value)}
