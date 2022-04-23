@@ -8,6 +8,7 @@ const ExpenseItem = (props: {
   name: string;
   cost: number;
   date: string;
+  category: string;
 }) => {
   const dispatch = useDispatch();
   const onDeleteExpense = () => {
@@ -17,6 +18,7 @@ const ExpenseItem = (props: {
     <li className="list-group-item d-flex justify-content-between align-items-center">
       {props.name}
       <div>
+        <span className="badge bg-secondary mx-3">{props.category}</span>
         <span className="badge bg-secondary mx-3">{props.date}</span>
         <span className="badge bg-secondary mx-3">
           {strings.currency} {props.cost}

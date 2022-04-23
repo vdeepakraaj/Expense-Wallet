@@ -14,6 +14,7 @@ const ExpenseList = () => {
             name={expense.name}
             cost={expense.cost}
             date={expense.date}
+            category={expense.category}
           />
         </div>
       ))}

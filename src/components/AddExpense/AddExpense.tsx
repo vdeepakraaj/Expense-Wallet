@@ -9,6 +9,7 @@ const AddExpenseForm = () => {
   const dispatch = useDispatch();
   var datetime = moment(new Date()).format("YYYY-MM-DD");
 
+  const [category, setCategory] = useState("Others");
   const [name, setName] = useState("");
   const [cost, setCost] = useState("");
   const [date, setDate] = useState(datetime);
@@ -20,7 +21,9 @@ const AddExpenseForm = () => {
       name: name,
       cost: parseInt(cost),
       date: date,
+      category: category,
     };
+
     dispatch(saveExpense(expense));
   };
 
@@ -40,6 +43,34 @@ const AddExpenseForm = () => {
             ></input>
           </div>
           <div className="row"></div>
+        </div>
+
+        <div className="col-sm form-group">
+          <label htmlFor="categoryList">{strings.category}</label>
+          <div className="mt-3">
+            <select
+              className="form-control form-select"
+              id="exampleFormControlSelect"
+              value={category}
+              onChange={(event) => {
+                setCategory(event.target.value);
+              }}
+            >
+              <option value={strings.food}>{strings.food}</option>
+              <option value={strings.medical}>{strings.medical}</option>
+              <option value={strings.grocery}>{strings.grocery}</option>
+              <option value={strings.clothing}>{strings.clothing}</option>
+              <option value={strings.transportation}>
+                {strings.transportation}
+              </option>
+              <option value={strings.housing}>{strings.housing}</option>
+              <option value={strings.membership}>{strings.membership}</option>
+              <option value={strings.entertainment}>
+                {strings.entertainment}
+              </option>
+              <option value={strings.others}>{strings.others}</option>
+            </select>
+          </div>
         </div>
 
         <div className="col-sm">

@@ -6,6 +6,7 @@ const Strings = {
   expenseList: "Expenses",
   addExpense: "Add Expense",
   name: "Name of Expense",
+  category: "Category",
   cost: "Cost",
   addButton: "Add",
   currency: "SGD",
@@ -13,6 +14,15 @@ const Strings = {
   save: "Save",
   budget: "Budget:",
   date: "Date of Expense",
+  food: "Food",
+  medical: "Medical/Healthcare",
+  grocery: "Groceries",
+  clothing: "Clothing",
+  transportation: "Transportation",
+  housing: "Housing",
+  membership: "Membership",
+  entertainment: "Entertainment",
+  others: "Others",
 };
 
 export default Strings;
