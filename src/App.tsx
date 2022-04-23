@@ -6,7 +6,8 @@ import Expense from "./components/Expense";
 import { Income } from "./components/Income";
 import store from "../src/state/store";
 import ExpenseList from "./components/ExpenseList";
-import AddExpenseForm from "./components/AddExpense/AddExpense";
+import AddExpenseForm from "./components/AddExpense";
+import Chart from "./components/Charts/PieChart";
 
 const App = () => {
   return (
@@ -36,6 +37,15 @@ const App = () => {
           <div className="row">
             <div className="col-sm">
               <AddExpenseForm />
+            </div>
+          </div>
+        </div>
+
+        <div className="row mt-3">
+          <h3 className="mt-3">Chart</h3>
+          <div className="row">
+            <div className="col-sm">
+              <Chart />
             </div>
           </div>
         </div>
