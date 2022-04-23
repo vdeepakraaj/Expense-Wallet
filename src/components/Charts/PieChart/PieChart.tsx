@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
-import { VictoryPie, VictoryTooltip } from "victory";
 import { RootState } from "../../../state/reducer/root-reducer";
-import { IDataMap, PieChartData } from "../../../model/pieChartData";
+import { IDataMap } from "../../../model/pieChartData";
 import { useEffect, useState } from "react";
+import Chart from "react-google-charts";
+import { getPieOptions } from "../../../util/ui/PieOptions";
 
 // PieChartMethods contains the necessary methods of this component
 export const PieChartMethods = () => {
@@ -28,46 +29,40 @@ export const PieChartMethods = () => {
 
 const PieChart = () => {
   const { expenseList } = useSelector((state: RootState) => state.expenseList);
-  const [endAngle, setEndAngle] = useState(0);
-  const [data, setData] = useState<PieChartData[]>([]);
-  var chartData: PieChartData[] = [];
+
+  var chartData: (string | number)[][] = [];
+
+  // The categories and percentage of amount spent on that category
+  var keys: string[] = ["Catgory", "%SpentOfAmountSpent"];
+
+  // Pushing the key names
+  chartData.push(keys);
 
   // Map to store key as category and value as total expense related to that category
   var categoryMap: IDataMap =
     PieChartMethods().convertToCategoryMap(expenseList);
-
-  // Iterating the map to transform to pie chart data
+  // Iterating the hashmap to retrieve the category and corresponding expense amount
   Object.keys(categoryMap).map((key) => {
-    let data: PieChartData = {
-      x: key,
-      y: categoryMap[key],
-      label: key,
-    };
-    chartData.push(data);
+    var item: (string | number)[] = [];
+    item.push(key);
+    item.push(categoryMap[key]);
+    chartData.push([...item]);
   });
 
-  useEffect(() => {
-    setTimeout(() => {
-      setEndAngle(360);
-      setData(chartData);
-    }, 100);
-  }, [chartData]);
+  const pieOptions = getPieOptions();
 
   return (
-    <VictoryPie
-      animate={{
-        duration: 2000,
-        easing: "bounce",
-      }}
-      colorScale="warm"
-      radius={120}
-      endAngle={endAngle}
-      style={{ labels: { padding: 5, fontSize: 15 } }}
-      data={data}
-      labels={({ datum }) => `${datum}`}
-      labelPlacement={({ datum }) => datum.placement}
-      labelComponent={<VictoryTooltip active />}
-    />
+    <>
+      <Chart
+        chartType="PieChart"
+        data={chartData}
+        options={pieOptions}
+        graph_id="PieChart"
+        width={"100%"}
+        height={"400px"}
+        legend_toggle
+      />
+    </>
   );
 };
 
