@@ -9,7 +9,7 @@ const AddExpenseForm = () => {
   const dispatch = useDispatch();
   var datetime = moment(new Date()).format("YYYY-MM-DD");
 
-  const [category, setCategory] = useState("");
+  const [name, setName] = useState("");
   const [cost, setCost] = useState("");
   const [date, setDate] = useState(datetime);
 
@@ -17,7 +17,7 @@ const AddExpenseForm = () => {
     event.preventDefault();
     const expense = {
       id: uuid(),
-      category: category,
+      name: name,
       cost: parseInt(cost),
       date: date,
     };
@@ -28,19 +28,20 @@ const AddExpenseForm = () => {
     <form onSubmit={onSubmit}>
       <div className="row">
         <div className="col-sm">
-          <label htmlFor="name">{strings.category}</label>
+          <label htmlFor="name">{strings.name}</label>
           <div className="mt-3">
             <input
               required={true}
               type="text"
               className="form-control"
               id="name"
-              value={category}
-              onChange={(event) => setCategory(event.target.value)}
+              value={name}
+              onChange={(event) => setName(event.target.value)}
             ></input>
           </div>
           <div className="row"></div>
         </div>
+
         <div className="col-sm">
           <label htmlFor="cost">{strings.cost}</label>
           <div className="mt-3">

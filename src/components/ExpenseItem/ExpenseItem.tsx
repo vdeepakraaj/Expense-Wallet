@@ -5,7 +5,7 @@ import { deleteExpense } from "../../state/slices/expense-slice";
 
 const ExpenseItem = (props: {
   id: string;
-  category: string;
+  name: string;
   cost: number;
   date: string;
 }) => {
@@ -15,7 +15,7 @@ const ExpenseItem = (props: {
   };
   return (
     <li className="list-group-item d-flex justify-content-between align-items-center">
-      {props.category}
+      {props.name}
       <div>
         <span className="badge bg-secondary mx-3">{props.date}</span>
         <span className="badge bg-secondary mx-3">

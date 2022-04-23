@@ -11,12 +11,12 @@ export const expenseSlice = createSlice({
     expenseList: [
       {
         id: uuid(),
-        category: "shopping",
+        name: "shopping",
         cost: 40,
         date: datetime,
       },
-      { id: uuid(), category: "holiday", cost: 400, date: datetime },
-      { id: uuid(), category: "car service", cost: 50, date: datetime },
+      { id: uuid(), name: "holiday", cost: 400, date: datetime },
+      { id: uuid(), name: "car service", cost: 50, date: datetime },
     ],
   },
   reducers: {

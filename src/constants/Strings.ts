@@ -5,7 +5,7 @@ const Strings = {
   spentAmount: " Spent",
   expenseList: "Expenses",
   addExpense: "Add Expense",
-  category: "Category",
+  name: "Name of Expense",
   cost: "Cost",
   addButton: "Add",
   currency: "SGD",
