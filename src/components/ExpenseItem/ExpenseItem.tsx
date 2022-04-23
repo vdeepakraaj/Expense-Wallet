@@ -3,7 +3,12 @@ import { useDispatch } from "react-redux";
 import strings from "../../constants/Strings";
 import { deleteExpense } from "../../state/slices/expense-slice";
 
-const ExpenseItem = (props: { id: string; category: string; cost: number }) => {
+const ExpenseItem = (props: {
+  id: string;
+  category: string;
+  cost: number;
+  date: string;
+}) => {
   const dispatch = useDispatch();
   const onDeleteExpense = () => {
     dispatch(deleteExpense(props.id));
@@ -12,6 +17,7 @@ const ExpenseItem = (props: { id: string; category: string; cost: number }) => {
     <li className="list-group-item d-flex justify-content-between align-items-center">
       {props.category}
       <div>
+        <span className="badge bg-secondary mx-3">{props.date}</span>
         <span className="badge bg-secondary mx-3">
           {strings.currency} {props.cost}
         </span>

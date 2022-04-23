@@ -12,6 +12,7 @@ const Strings = {
   Edit: "Edit",
   save: "Save",
   budget: "Budget:",
+  date: "Date of Expense",
 };
 
 export default Strings;

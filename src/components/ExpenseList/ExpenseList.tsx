@@ -13,6 +13,7 @@ const ExpenseList = () => {
             id={expense.id}
             category={expense.category}
             cost={expense.cost}
+            date={expense.date}
           />
         </div>
       ))}

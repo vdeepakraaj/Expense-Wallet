@@ -1,14 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
+import moment from "moment";
 import { v4 as uuid } from "uuid";
+
+var datetime = moment(new Date()).format("YYYY-MM-DD");
 
 export const expenseSlice = createSlice({
   name: "expenseList",
   initialState: {
     budget: 2000,
     expenseList: [
-      { id: uuid(), category: "shopping", cost: 40 },
-      { id: uuid(), category: "holiday", cost: 400 },
-      { id: uuid(), category: "car service", cost: 50 },
+      {
+        id: uuid(),
+        category: "shopping",
+        cost: 40,
+        date: datetime,
+      },
+      { id: uuid(), category: "holiday", cost: 400, date: datetime },
+      { id: uuid(), category: "car service", cost: 50, date: datetime },
     ],
   },
   reducers: {
