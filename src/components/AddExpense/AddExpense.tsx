@@ -3,11 +3,11 @@ import { useDispatch } from "react-redux";
 import strings from "../../constants/Strings";
 import { saveExpense } from "../../state/slices/expense-slice";
 import { v4 as uuid } from "uuid";
-import moment from "moment";
+import { format, subYears } from "date-fns";
 
 const AddExpenseForm = () => {
   const dispatch = useDispatch();
-  var datetime = moment(new Date()).format("YYYY-MM-DD");
+  var datetime = format(new Date(), "yyyy-MM-dd");
 
   const [category, setCategory] = useState("Others");
   const [name, setName] = useState("");
@@ -93,6 +93,8 @@ const AddExpenseForm = () => {
             <input
               required={true}
               type="date"
+              max={format(new Date(), "yyyy-MM-dd")}
+              min={format(subYears(new Date(), 1), "yyyy-MM-dd")}
               value={date}
               className="form-control"
               onChange={(event) => setDate(event.target.value)}

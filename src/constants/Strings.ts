@@ -23,6 +23,10 @@ const Strings = {
   membership: "Membership",
   entertainment: "Entertainment",
   others: "Others",
+  week: "This Week",
+  thirtyDays: "Last 30 Days",
+  sixMonths: "Last 6 Months",
+  oneYear: "Last 1 Year",
 };
 
 export default Strings;

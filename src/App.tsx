@@ -7,7 +7,7 @@ import { Income } from "./components/Income";
 import store from "../src/state/store";
 import ExpenseList from "./components/ExpenseList";
 import AddExpenseForm from "./components/AddExpense";
-import Chart from "./components/Charts/PieChart";
+import ChartComponent from "./components/Charts/ChartComponent";
 
 const App = () => {
   return (
@@ -45,7 +45,7 @@ const App = () => {
           <h3 className="mt-3">Chart</h3>
           <div className="row">
             <div className="col-sm">
-              <Chart />
+              <ChartComponent />
             </div>
           </div>
         </div>

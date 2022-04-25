@@ -2,17 +2,12 @@ import { TiDelete } from "react-icons/ti";
 import { useDispatch } from "react-redux";
 import strings from "../../constants/Strings";
 import { deleteExpense } from "../../state/slices/expense-slice";
+import { ExpenseItem as Expense } from "../../types/chartData";
 
-const ExpenseItem = (props: {
-  id: string;
-  name: string;
-  cost: number;
-  date: string;
-  category: string;
-}) => {
+const ExpenseItem = (props: Expense) => {
   const dispatch = useDispatch();
   const onDeleteExpense = () => {
-    dispatch(deleteExpense(props.id));
+    dispatch(deleteExpense(props.index));
   };
   return (
     <li className="list-group-item d-flex justify-content-between align-items-center">
@@ -23,7 +18,7 @@ const ExpenseItem = (props: {
         <span className="badge bg-secondary mx-3">
           {strings.currency} {props.cost}
         </span>
-        <TiDelete size="1.5em" onClick={onDeleteExpense}></TiDelete>
+        <TiDelete size="1.5em" onClick={() => onDeleteExpense()}></TiDelete>
       </div>
     </li>
   );
