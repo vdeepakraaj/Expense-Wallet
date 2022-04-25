@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from "react";
+
 import { useSelector } from "react-redux";
 import { RootState } from "../../../state/reducer/root-reducer";
 import { ExpenseItem, IDataMap, LineChartData } from "../../../types/chartData";
@@ -6,7 +8,6 @@ import { getPieOptions } from "../../../util/ui/PieOptions";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { Duration, intervalToDuration } from "date-fns";
-import { useEffect, useState } from "react";
 import Strings from "../../../constants/Strings";
 import ChartMethods from "../../../util/ui/ChartUtil";
 
@@ -223,8 +224,7 @@ const ChartComponent = () => {
     }
 
     // Iterating the hashmap to retrieve the category and corresponding expense amount
-    // eslint-disable-next-line array-callback-return
-    Object.keys(lineChartMap!).map((key: string) => {
+    Object.keys(lineChartMap!).forEach((key: string) => {
       var item: (string | number)[] = [];
       item.push(key);
       item.push(lineChartMap[key]);
@@ -239,8 +239,7 @@ const ChartComponent = () => {
     var categoryMap: IDataMap =
       ChartMethods().convertToCategoryMap(sortedExpenseList);
     // Iterating the hashmap to retrieve the category and corresponding expense amount
-    // eslint-disable-next-line array-callback-return
-    Object.keys(categoryMap).map((key) => {
+    Object.keys(categoryMap).forEach((key) => {
       var item: (string | number)[] = [];
       item.push(key);
       item.push(categoryMap[key]);
@@ -283,8 +282,7 @@ function findTheDurationDiffAndAddToList(
   setThirtyDayList: React.Dispatch<React.SetStateAction<LineChartData[]>>,
   setSevenDayList: React.Dispatch<React.SetStateAction<LineChartData[]>>
 ) {
-  // eslint-disable-next-line array-callback-return
-  sortedExpenseList.map((expense) => {
+  sortedExpenseList.forEach((expense) => {
     // Return the duration diff between dates
     var differenceInTime = intervalToDuration({
       start: new Date(expense.date),
@@ -301,7 +299,7 @@ function findTheDurationDiffAndAddToList(
         ChartMethods().isDateWithinOneYear(differenceInTime);
 
       if (isDateWithinOneYear) {
-        setOneYearList((previous) => {
+        setOneYearList((previous: LineChartData[]) => {
           return [...previous, expense];
         });
       }
@@ -312,7 +310,7 @@ function findTheDurationDiffAndAddToList(
         ChartMethods().isDateWithinSixMonths(differenceInTime);
 
       if (isDateWithinSixMonths) {
-        setSixMonthsList((previous) => {
+        setSixMonthsList((previous: LineChartData[]) => {
           return [...previous, expense];
         });
       }
@@ -323,7 +321,7 @@ function findTheDurationDiffAndAddToList(
         ChartMethods().isDateWithinThirtyDays(differenceInTime);
 
       if (isDateWithinThirtyDays) {
-        setThirtyDayList((previous) => {
+        setThirtyDayList((previous: LineChartData[]) => {
           return [...previous, expense];
         });
       }
@@ -333,7 +331,7 @@ function findTheDurationDiffAndAddToList(
       var isDateWithin7Days =
         ChartMethods().isDateWithin7Days(differenceInTime);
       if (isDateWithin7Days) {
-        setSevenDayList((previous) => {
+        setSevenDayList((previous: LineChartData[]) => {
           return [...previous, expense];
         });
       }

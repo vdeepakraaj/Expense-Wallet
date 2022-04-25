@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+
 import strings from "../../constants/Strings";
 import { saveExpense } from "../../state/slices/expense-slice";
 import { v4 as uuid } from "uuid";
 import { format, subYears } from "date-fns";
+
+import { MAX_NUMBER_INPUT, MAX_STRING_INPUT } from "../../constants/Constants";
 
 const AddExpenseForm = () => {
   const dispatch = useDispatch();
@@ -39,6 +42,7 @@ const AddExpenseForm = () => {
               className="form-control"
               id="name"
               value={name}
+              maxLength={MAX_STRING_INPUT}
               onChange={(event) => setName(event.target.value)}
             ></input>
           </div>
@@ -81,6 +85,7 @@ const AddExpenseForm = () => {
               type="number"
               className="form-control"
               min="0"
+              max={MAX_NUMBER_INPUT}
               value={cost}
               onChange={(event) => setCost(event.target.value)}
               id="cost"

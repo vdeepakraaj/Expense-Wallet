@@ -1,5 +1,3 @@
-/* eslint-disable array-callback-return */
-
 import { Duration, format } from "date-fns";
 
 import { IDataMap } from "../../types/chartData";
@@ -10,7 +8,7 @@ const ChartMethods = () => {
     expenseList: { category: string; cost: number }[]
   ) => {
     let dataMap: IDataMap = {};
-    expenseList.map((expense: { category: string; cost: number }) => {
+    expenseList.forEach((expense: { category: string; cost: number }) => {
       // Having a map to save category and corresponding spending amount for that category in the list
       if (dataMap == null || dataMap[expense.category] == null) {
         dataMap[expense.category] = expense.cost;
@@ -25,7 +23,7 @@ const ChartMethods = () => {
     expenseList: { date: string; cost: number }[]
   ) => {
     let dataMap: IDataMap = {};
-    expenseList.map((expense: { cost: number; date: string }) => {
+    expenseList.forEach((expense: { cost: number; date: string }) => {
       var day = format(new Date(expense.date), "EE");
 
       // Having a map to save category and corresponding spending amount for that category in the list
@@ -42,7 +40,7 @@ const ChartMethods = () => {
     expenseList: { date: string; cost: number }[]
   ) => {
     let dataMap: IDataMap = {};
-    expenseList.map((expense: { cost: number; date: string }) => {
+    expenseList.forEach((expense: { cost: number; date: string }) => {
       var days = format(new Date(expense.date), "do MMM");
 
       // Having a map to save category and corresponding spending amount for that category in the list
@@ -60,7 +58,7 @@ const ChartMethods = () => {
   ) => {
     let dataMap: IDataMap = {};
 
-    expenseList.map((expense: { cost: number; date: string }) => {
+    expenseList.forEach((expense: { cost: number; date: string }) => {
       var month = format(new Date(expense.date), "MMM yy");
       // Having a map to save category and corresponding spending amount for that category in the list
       if (dataMap == null || dataMap[month] == null) {

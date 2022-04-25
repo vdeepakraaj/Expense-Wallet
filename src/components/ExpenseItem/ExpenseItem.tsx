@@ -1,7 +1,8 @@
-import { TiDelete } from "react-icons/ti";
+import { BsFillTrashFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import strings from "../../constants/Strings";
 import { deleteExpense } from "../../state/slices/expense-slice";
+import { Colors } from "../../styles/Colors";
 import { ExpenseItem as Expense } from "../../types/chartData";
 
 const ExpenseItem = (props: Expense) => {
@@ -10,17 +11,27 @@ const ExpenseItem = (props: Expense) => {
     dispatch(deleteExpense(props.index));
   };
   return (
-    <li className="list-group-item d-flex justify-content-between align-items-center">
-      {props.name}
-      <div>
-        <span className="badge bg-secondary mx-3">{props.category}</span>
-        <span className="badge bg-secondary mx-3">{props.date}</span>
-        <span className="badge bg-secondary mx-3">
+    <tr>
+      <td>{props.name}</td>
+      <td>
+        <span>{props.category}</span>
+      </td>
+      <td>
+        <span>{props.date}</span>
+      </td>
+      <td>
+        <span>
           {strings.currency} {props.cost}
         </span>
-        <TiDelete size="1.5em" onClick={() => onDeleteExpense()}></TiDelete>
-      </div>
-    </li>
+      </td>
+      <td>
+        <BsFillTrashFill
+          size="1.3em"
+          color={Colors.red}
+          onClick={() => onDeleteExpense()}
+        ></BsFillTrashFill>
+      </td>
+    </tr>
   );
 };
 

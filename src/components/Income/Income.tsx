@@ -21,11 +21,10 @@ const Income = () => {
   };
 
   return (
-    <div className="alert alert-secondary p-3 d-flex align-items-center justify-content-between">
+    <div className="alert alert-primary p-3 d-flex align-items-center justify-content-between h-100">
       {isEditing ? (
         <EditIncome handleSaveClick={handleSaveClick} budget={budget} />
       ) : (
-        // For part 1 render component inline rather than create a seperate one
         <ViewIncome handleEditClick={handleEditClick} budget={budget} />
       )}
     </div>

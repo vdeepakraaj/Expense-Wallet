@@ -8,7 +8,7 @@ const Strings = {
   name: "Name of Expense",
   category: "Category",
   cost: "Cost",
-  addButton: "Add",
+  addButton: "Add New Expense",
   currency: "SGD",
   Edit: "Edit",
   save: "Save",

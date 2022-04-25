@@ -1,5 +1,7 @@
 import { useState } from "react";
 import strings from "../../constants/Strings";
+import { MAX_NUMBER_INPUT } from "../../constants/Constants";
+
 const EditIncome = (props: {
   budget: any;
   handleSaveClick: (value: any) => void;
@@ -10,6 +12,7 @@ const EditIncome = (props: {
       <input
         required={true}
         type="number"
+        max={MAX_NUMBER_INPUT}
         className="form-control mr-3"
         id="name"
         value={value}

@@ -1,26 +1,28 @@
+import { Colors } from "../../styles/Colors";
+
 export const getPieOptions = () => {
   return {
     title: "Pie Chart",
     pieHole: 0,
     slices: [
       {
-        color: "#2BB673",
+        color: Colors.pie1,
       },
       {
-        color: "#d91e48",
+        color: Colors.pie2,
       },
       {
-        color: "#007fad",
+        color: Colors.pie3,
       },
       {
-        color: "#e9a227",
+        color: Colors.pie4,
       },
     ],
     legend: {
       position: "bottom",
       alignment: "center",
       textStyle: {
-        color: "233238",
+        color: Colors.legendColor,
         fontSize: 14,
       },
     },

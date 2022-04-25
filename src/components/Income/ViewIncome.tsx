@@ -1,5 +1,7 @@
 import React from "react";
+import { GrMoney } from "react-icons/gr";
 import Strings from "../../constants/Strings";
+import { FontSizes } from "../../styles/FontSizes";
 
 const ViewIncome = (props: {
   budget: number;
@@ -8,7 +10,8 @@ const ViewIncome = (props: {
   return (
     <>
       <span>
-        {Strings.budget} {Strings.currency}
+        <GrMoney size={FontSizes.size4} />
+        {` ${Strings.budget} ${Strings.currency}`}
         {props.budget}
       </span>
       <button

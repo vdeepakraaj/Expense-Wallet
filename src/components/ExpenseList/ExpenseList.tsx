@@ -1,14 +1,28 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../state/reducer/root-reducer";
+import EmptyView from "../EmptyView";
 import ExpenseItem from "../ExpenseItem";
 
 const ExpenseList = () => {
   const { expenseList } = useSelector((state: RootState) => state.expenseList);
 
+  if (expenseList.length === 0) {
+    return <EmptyView message="No data" />;
+  }
+
   return (
-    <ul className="list-group">
-      {expenseList.map((expense, index) => (
-        <div key={expense.id}>
+    <table className="table table-light">
+      <thead>
+        <tr>
+          <th scope="col">Name of Expense</th>
+          <th scope="col">Category</th>
+          <th scope="col">Cost</th>
+          <th scope="col">Date of Expense</th>
+          <th />
+        </tr>
+      </thead>
+      <tbody>
+        {expenseList.map((expense, index) => (
           <ExpenseItem
             index={index}
             id={expense.id}
@@ -17,9 +31,9 @@ const ExpenseList = () => {
             date={expense.date}
             category={expense.category}
           />
-        </div>
-      ))}
-    </ul>
+        ))}
+      </tbody>
+    </table>
   );
 };
 
