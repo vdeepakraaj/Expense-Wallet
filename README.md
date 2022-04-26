@@ -24,9 +24,11 @@ A visual representation of the expenses have also been provided which helps to u
 
 ![Screenshot](./src/mobileViewChart.png)
 
-# Getting Started with Create React App
+# Getting started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Clone the repository and run npm i to install all the dependencies
+Run npm start to start the react app
+Navigate to localhost:3000 on your browser
 
 ## Available Scripts
 
