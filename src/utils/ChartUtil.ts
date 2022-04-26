@@ -97,7 +97,7 @@ const ChartMethods = () => {
     duration.years === 0 && duration.months === 0 ? true : false;
 
   const isDateWithinSixMonths = (duration: Duration) =>
-    duration.years === 0 && duration.months! >= 0 && duration.months! <= 6
+    duration.years === 0 && duration.months! >= 0 && duration.months! <= 5
       ? true
       : false;
 
