@@ -1,9 +1,9 @@
 const LineChartOptions = {
   hAxis: {
-    title: "Time",
+    title: "Days",
   },
   vAxis: {
-    title: "Expense",
+    title: "Expenses in SGD",
   },
   series: {
     1: { curveType: "function" },
