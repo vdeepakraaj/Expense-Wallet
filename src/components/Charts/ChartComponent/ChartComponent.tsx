@@ -4,12 +4,12 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../state/reducer/root-reducer";
 import { ExpenseItem, IDataMap, LineChartData } from "../../../types/chartData";
 import Chart from "react-google-charts";
-import { getPieOptions } from "../../../util/ui/PieOptions";
+import { getPieOptions } from "../../../utils/PieOptions";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { Duration, intervalToDuration } from "date-fns";
 import Strings from "../../../constants/Strings";
-import ChartMethods from "../../../util/ui/ChartUtil";
+import ChartMethods from "../../../utils/ChartUtil";
 
 import {
   LineChartOptions,
@@ -30,6 +30,7 @@ const ChartComponent = () => {
   const [isThirtyDays, setIsThirtyDays] = useState(false);
   const [isSixMonths, setIsSixMonths] = useState(false);
   const [isOneYear, setIsOneYear] = useState(false);
+
   // Pushing the key names
   chartData.push(pieChartKeys);
   // Pushing the key names

@@ -1,6 +1,6 @@
 import { Duration, format } from "date-fns";
 
-import { IDataMap } from "../../types/chartData";
+import { IDataMap } from "../types/chartData";
 
 // ChartMethods contains the necessary methods of this component
 const ChartMethods = () => {

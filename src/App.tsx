@@ -8,14 +8,15 @@ import store from "../src/state/store";
 import ExpenseList from "./components/ExpenseList";
 import AddExpenseForm from "./components/AddExpense";
 import ChartComponent from "./components/Charts/ChartComponent";
+import Strings from "./constants/Strings";
 
 const App = () => {
   return (
     <Provider store={store}>
       <div className="container">
-        <h1 className="mt-3">My Expense Wallet</h1>
+        <h1 className="mt-3">{Strings.appTilte}</h1>
         <div className="row">
-          <div className="col-sm">
+          <div className="col-sm" id="id_income">
             <Income />
           </div>
           <div className="col-sm">
@@ -27,7 +28,7 @@ const App = () => {
         </div>
 
         <div className="row mt-3">
-          <h3 className="mt-3">Add Expense</h3>
+          <h3 className="mt-3">{Strings.addButton}</h3>
           <div className="row">
             <div className="col-sm">
               <AddExpenseForm />
@@ -35,7 +36,7 @@ const App = () => {
           </div>
         </div>
 
-        <h3 className="mt-3">Expenses</h3>
+        <h3 className="mt-3">{Strings.expenseList}</h3>
         <div className="row mt-3">
           <div className="col-sm">
             <ExpenseList />
@@ -43,7 +44,7 @@ const App = () => {
         </div>
 
         <div className="row mt-3">
-          <h3 className="mt-3">Chart</h3>
+          <h3 className="mt-3">{Strings.chart}</h3>
           <div className="row">
             <div className="col-sm">
               <ChartComponent />

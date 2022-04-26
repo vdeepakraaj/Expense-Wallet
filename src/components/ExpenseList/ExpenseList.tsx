@@ -24,6 +24,7 @@ const ExpenseList = () => {
       <tbody>
         {expenseList.map((expense, index) => (
           <ExpenseItem
+            key={expense.id}
             index={index}
             id={expense.id}
             name={expense.name}

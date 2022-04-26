@@ -1,8 +1,24 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
+import React from "react";
+import Strings from "./constants/Strings";
 
-test('renders learn react link', () => {
+test("Check whether App title exists", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByText(Strings.appTilte)).toBeInTheDocument();
+});
+
+test("Check whether chart title exists", () => {
+  render(<App />);
+  expect(screen.getByText(Strings.chart)).toBeInTheDocument();
+});
+
+test("Check whether Add Expense string occurs 2 times", () => {
+  render(<App />);
+  expect(screen.getAllByText(Strings.addButton).length).toBe(2);
+});
+
+test("Check whether Expenses title exists", () => {
+  render(<App />);
+  expect(screen.getByText(Strings.expenseList)).toBeInTheDocument();
 });

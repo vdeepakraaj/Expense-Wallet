@@ -27,6 +27,7 @@ const Strings = {
   thirtyDays: "Last 30 Days",
   sixMonths: "Last 6 Months",
   oneYear: "Last 1 Year",
+  chart: "Visualization Chart",
 };
 
 export default Strings;
